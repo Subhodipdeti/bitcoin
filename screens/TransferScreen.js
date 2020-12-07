@@ -146,6 +146,15 @@ const BuyScreen = () => {
             alignItems: 'center',
             borderRadius: 5,
             padding: 10,
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 5,
           }}>
           <Text
             style={{
@@ -175,6 +184,15 @@ const SellScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
             padding: 5,
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 5,
           }}>
           {/* <Icon name="arrow-left" color="#000" size={20} /> */}
           <Icon
@@ -199,14 +217,27 @@ const SellScreen = () => {
         <ListItem
           avatar
           noBorder
-          style={{borderBottomColor: '#eee', borderBottomWidth: 2}}>
+          style={{
+            borderBottomColor: '#eee',
+            borderBottomWidth: 2,
+            marginTop: 10,
+          }}>
           <Left>
             <View
               style={{
                 backgroundColor: '#FAC42F',
-                margin: 10,
+                // margin: 10,
                 padding: 5,
                 borderRadius: 100,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 3.84,
+
+                elevation: 5,
               }}>
               <Icon name="bitcoin" color="#fff" size={20} />
             </View>
@@ -227,14 +258,27 @@ const SellScreen = () => {
         <ListItem
           avatar
           noBorder
-          style={{borderBottomColor: '#eee', borderBottomWidth: 2}}>
+          style={{
+            borderBottomColor: '#eee',
+            borderBottomWidth: 2,
+            marginTop: 15,
+          }}>
           <Left>
             <View
               style={{
                 backgroundColor: '#6AB04A',
-                margin: 10,
+                //margin: 10,
                 padding: 5,
                 borderRadius: 100,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 3.84,
+
+                elevation: 5,
               }}>
               <Icon name="bitcoin" color="#fff" size={20} />
             </View>

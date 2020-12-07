@@ -163,7 +163,7 @@ const HomeScreen = ({navigation}) => {
   const theme = useTheme();
 
   return (
-    <View>
+    <ScrollView>
       <View
         style={{
           padding: 20,
@@ -196,6 +196,15 @@ const HomeScreen = ({navigation}) => {
             width: width / 1.5,
             backgroundColor: '#ffffff',
             margin: 10,
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 5,
+            },
+            shadowOpacity: 0.34,
+            shadowRadius: 6.27,
+
+            elevation: 10,
           }}>
           <View
             style={{
@@ -259,6 +268,15 @@ const HomeScreen = ({navigation}) => {
             width: width / 1.5,
             backgroundColor: '#ffffff',
             margin: 10,
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 5,
+            },
+            shadowOpacity: 0.34,
+            shadowRadius: 6.27,
+
+            elevation: 10,
           }}>
           <View
             style={{
@@ -274,6 +292,15 @@ const HomeScreen = ({navigation}) => {
                 backgroundColor: '#45CE30',
                 padding: 10,
                 borderRadius: 10,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
+
+                elevation: 10,
               }}>
               <Title style={{color: '#fff'}}>$</Title>
             </View>
@@ -322,6 +349,15 @@ const HomeScreen = ({navigation}) => {
             width: width / 1.5,
             backgroundColor: '#ffffff',
             margin: 10,
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 5,
+            },
+            shadowOpacity: 0.34,
+            shadowRadius: 6.27,
+
+            elevation: 10,
           }}>
           <View
             style={{
@@ -337,6 +373,15 @@ const HomeScreen = ({navigation}) => {
                 backgroundColor: '#45CE30',
                 padding: 10,
                 borderRadius: 10,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
+
+                elevation: 10,
               }}>
               <Title style={{color: '#fff'}}>$</Title>
             </View>
@@ -378,206 +423,240 @@ const HomeScreen = ({navigation}) => {
         </View>
       </ScrollView>
 
-      <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+      <TouchableOpacity
+        style={{
+          borderRadius: 10,
+          borderColor: '#DAE0E2',
+          borderWidth: 2,
+          width: '100%',
+          backgroundColor: '#ffffff',
+          padding: 10,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 5,
+          },
+          shadowOpacity: 0.34,
+          shadowRadius: 6.27,
+          marginVertical: 10,
+          elevation: 10,
+        }}
+        onPress={() => refRBSheet.current.open()}>
         <View
           style={{
-            borderColor: '#DAE0E2',
-            borderWidth: 2,
-            width: '100%',
-            backgroundColor: '#ffffff',
-            padding: 10,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingHorizontal: 10,
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              paddingHorizontal: 10,
-            }}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <View
-                style={{
-                  backgroundColor: '#FAC42F',
-                  margin: 10,
-                  padding: 5,
-                  borderRadius: 100,
-                }}>
-                <Icon name="bitcoin" color="#fff" size={20} />
-              </View>
-              <Title
-                style={{
-                  fontFamily: 'BlissPro-Bold',
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View
+              style={{
+                backgroundColor: '#FAC42F',
+                margin: 10,
+                padding: 5,
+                borderRadius: 100,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
 
-                  opacity: 0.8,
-                }}>
-                Bitcoin
-              </Title>
+                elevation: 10,
+              }}>
+              <Icon name="bitcoin" color="#fff" size={20} />
             </View>
-
-            <View style={{width: '30%'}}>{LineChartpreview()}</View>
+            <Title
+              style={{
+                fontFamily: 'BlissPro-Bold',
+                opacity: 0.8,
+              }}>
+              Bitcoin
+            </Title>
           </View>
 
-          <View
-            style={{
-              marginLeft: 40,
-              padding: 10,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
+          <View style={{width: '30%'}}>{LineChartpreview()}</View>
+        </View>
+
+        <View
+          style={{
+            marginLeft: 40,
+            padding: 10,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <View>
+            <Text
+              style={{
+                fontFamily: 'BlissPro',
+                opacity: 0.8,
+              }}>
+              $0.00
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'BlissPro',
+                opacity: 0.5,
+              }}>
+              0 BTC
+            </Text>
+          </View>
+
+          <View style={{flexDirection: 'row'}}>
+            <View
+              style={{
+                backgroundColor: '#eee',
+                width: 2,
+                marginHorizontal: 10,
+              }}
+            />
             <View>
               <Text
                 style={{
                   fontFamily: 'BlissPro',
-                  opacity: 0.8,
+                  opacity: 0.6,
                 }}>
-                $0.00
+                $14,176.86
               </Text>
-              <Text
-                style={{
-                  fontFamily: 'BlissPro',
-                  opacity: 0.5,
-                }}>
-                0 BTC
-              </Text>
-            </View>
-
-            <View style={{flexDirection: 'row'}}>
-              <View
-                style={{
-                  backgroundColor: '#eee',
-                  width: 2,
-                  marginHorizontal: 10,
-                }}
-              />
-              <View>
+              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                <Text
+                  style={{
+                    color: '#D63031',
+                    fontFamily: 'BlissPro',
+                    opacity: 0.6,
+                  }}>
+                  -1.55%{' '}
+                </Text>
                 <Text
                   style={{
                     fontFamily: 'BlissPro',
                     opacity: 0.6,
                   }}>
-                  $14,176.86
+                  24hrs
                 </Text>
-                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                  <Text
-                    style={{
-                      color: '#D63031',
-                      fontFamily: 'BlissPro',
-                      opacity: 0.6,
-                    }}>
-                    -1.55%{' '}
-                  </Text>
-                  <Text
-                    style={{
-                      fontFamily: 'BlissPro',
-                      opacity: 0.6,
-                    }}>
-                    24hrs
-                  </Text>
-                </View>
               </View>
             </View>
           </View>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+      <TouchableOpacity
+        style={{
+          borderRadius: 10,
+          borderColor: '#DAE0E2',
+          borderWidth: 2,
+          width: '100%',
+          backgroundColor: '#ffffff',
+          padding: 10,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 5,
+          },
+          shadowOpacity: 0.34,
+          shadowRadius: 6.27,
+          elevation: 10,
+          marginVertical: 10,
+        }}
+        onPress={() => refRBSheet.current.open()}>
         <View
           style={{
-            borderColor: '#DAE0E2',
-            borderWidth: 2,
-            width: '100%',
-            backgroundColor: '#ffffff',
-            padding: 10,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingHorizontal: 10,
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              paddingHorizontal: 10,
-            }}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <View
-                style={{
-                  backgroundColor: '#45CE30',
-                  margin: 10,
-                  padding: 5,
-                  borderRadius: 100,
-                }}>
-                <Icon name="bitcoin" color="#fff" size={20} />
-              </View>
-              <Title
-                style={{
-                  fontFamily: 'BlissPro-Bold',
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View
+              style={{
+                backgroundColor: '#45CE30',
+                margin: 10,
+                padding: 5,
+                borderRadius: 100,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
 
-                  opacity: 0.8,
-                }}>
-                Bitcoin Cash
-              </Title>
+                elevation: 10,
+              }}>
+              <Icon name="bitcoin" color="#fff" size={20} />
             </View>
-
-            <View style={{width: '30%'}}>{LineChartpreview()}</View>
+            <Title
+              style={{
+                fontFamily: 'BlissPro-Bold',
+                opacity: 0.8,
+              }}>
+              Bitcoin Cash
+            </Title>
           </View>
 
-          <View
-            style={{
-              marginLeft: 40,
-              padding: 10,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
+          <View style={{width: '30%'}}>{LineChartpreview()}</View>
+        </View>
+
+        <View
+          style={{
+            marginLeft: 40,
+            padding: 10,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <View>
+            <Text
+              style={{
+                fontFamily: 'BlissPro',
+                opacity: 0.8,
+              }}>
+              $0.00
+            </Text>
+            <Text
+              style={{
+                fontFamily: 'BlissPro',
+                opacity: 0.5,
+              }}>
+              0 BTC
+            </Text>
+          </View>
+
+          <View style={{flexDirection: 'row'}}>
+            <View
+              style={{
+                backgroundColor: '#eee',
+                width: 2,
+                marginHorizontal: 10,
+              }}
+            />
             <View>
               <Text
                 style={{
                   fontFamily: 'BlissPro',
-                  opacity: 0.8,
+                  opacity: 0.6,
                 }}>
-                $0.00
+                $14,176.86
               </Text>
-              <Text
-                style={{
-                  fontFamily: 'BlissPro',
-                  opacity: 0.5,
-                }}>
-                0 BTC
-              </Text>
-            </View>
-
-            <View style={{flexDirection: 'row'}}>
-              <View
-                style={{
-                  backgroundColor: '#eee',
-                  width: 2,
-                  marginHorizontal: 10,
-                }}
-              />
-              <View>
+              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                <Text
+                  style={{
+                    color: '#D63031',
+                    fontFamily: 'BlissPro',
+                    opacity: 0.6,
+                  }}>
+                  -1.55%{' '}
+                </Text>
                 <Text
                   style={{
                     fontFamily: 'BlissPro',
                     opacity: 0.6,
                   }}>
-                  $14,176.86
+                  24hrs
                 </Text>
-                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                  <Text
-                    style={{
-                      color: '#D63031',
-                      fontFamily: 'BlissPro',
-                      opacity: 0.6,
-                    }}>
-                    -1.55%{' '}
-                  </Text>
-                  <Text
-                    style={{
-                      fontFamily: 'BlissPro',
-                      opacity: 0.6,
-                    }}>
-                    24hrs
-                  </Text>
-                </View>
               </View>
             </View>
           </View>
@@ -623,7 +702,7 @@ const HomeScreen = ({navigation}) => {
 
         <MyTabs />
       </RBSheet>
-    </View>
+    </ScrollView>
   );
 };
 

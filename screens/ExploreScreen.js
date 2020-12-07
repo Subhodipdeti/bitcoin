@@ -119,9 +119,18 @@ const BuyScreen = () => {
             <View
               style={{
                 backgroundColor: '#FAC42F',
-                margin: 10,
+
                 padding: 5,
                 borderRadius: 100,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
+
+                elevation: 10,
               }}>
               <Icon name="bitcoin" color="#fff" size={20} />
             </View>
@@ -152,9 +161,17 @@ const BuyScreen = () => {
             <View
               style={{
                 backgroundColor: '#6ab04c',
-                margin: 10,
                 padding: 5,
                 borderRadius: 100,
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 5,
+                },
+                shadowOpacity: 0.34,
+                shadowRadius: 6.27,
+
+                elevation: 10,
               }}>
               <Icon name="bitcoin" color="#fff" size={20} />
             </View>
@@ -340,6 +357,15 @@ const SellScreen = () => {
             alignItems: 'center',
             borderRadius: 5,
             padding: 10,
+            shadowColor: '#000',
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 5,
           }}>
           <Text
             style={{

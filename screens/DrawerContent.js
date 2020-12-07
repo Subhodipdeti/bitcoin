@@ -15,12 +15,12 @@ import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// import{ AuthContext } from '../components/context';
+import {AuthContext} from '../Components/context';
 
 export function DrawerContent(props) {
   const paperTheme = useTheme();
 
-  // const { signOut, toggleTheme } = React.useContext(AuthContext);
+  const {signOut, toggleTheme} = React.useContext(AuthContext);
 
   return (
     <View style={{flex: 1}}>
@@ -250,8 +250,7 @@ export function DrawerContent(props) {
                     },
                     {
                       text: 'OK',
-                      onPress: () =>
-                        Linking.openURL('https://www.blockchain.com/'),
+                      onPress: () => signOut(),
                     },
                   ],
                   {cancelable: false},
