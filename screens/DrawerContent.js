@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Alert, Linking} from 'react-native';
 import {
   useTheme,
   Avatar,
@@ -60,11 +60,25 @@ export function DrawerContent(props) {
             style={{
               display: 'flex',
               flexDirection: 'row',
-              justifyContent: 'center',
+              // justifyContent: 'center',
               alignSelf: 'flex-start',
+              borderBottomColor: '#eee',
+              borderBottomWidth: 2,
+              width: '100%',
             }}>
-            <Title>Blockchain</Title>
-            <Title>.com</Title>
+            <Icon
+              name="bitcoin"
+              size={30}
+              color="#1749FF"
+              style={{alignSelf: 'center', margin: 5}}
+            />
+            <View
+              style={{alignSelf: 'center', margin: 10, flexDirection: 'row'}}>
+              <Title style={{fontFamily: 'BlissPro-Bold'}}>Blockchain</Title>
+              <Title style={{fontFamily: 'BlissPro-Bold', opacity: 0.6}}>
+                .com
+              </Title>
+            </View>
           </Drawer.Section>
 
           <Drawer.Section style={styles.drawerSection}>
@@ -73,8 +87,13 @@ export function DrawerContent(props) {
                 <Icon name="brightness-percent" color={color} size={size} />
               )}
               label="Earn interest"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('Home');
+                props.navigation.navigate('EarnIntrestScreen');
               }}
             />
             <DrawerItem
@@ -82,8 +101,13 @@ export function DrawerContent(props) {
                 <Icon name="format-list-numbered" color={color} size={size} />
               )}
               label="Backup funds"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('Profile');
+                props.navigation.navigate('BackupFundsScreen');
               }}
             />
             <DrawerItem
@@ -91,8 +115,13 @@ export function DrawerContent(props) {
                 <Icon name="wallet" color={color} size={size} />
               )}
               label="Address"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('BookmarkScreen');
+                props.navigation.navigate('AddressesScreen');
               }}
             />
             <DrawerItem
@@ -100,8 +129,13 @@ export function DrawerContent(props) {
                 <Icon name="rotate-left" color={color} size={size} />
               )}
               label="Exchange"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('SettingsScreen');
+                props.navigation.navigate('ExchangeScreen');
               }}
             />
             <DrawerItem
@@ -109,8 +143,13 @@ export function DrawerContent(props) {
                 <Icon name="airballoon" color={color} size={size} />
               )}
               label="Airdrops"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('SupportScreen');
+                props.navigation.navigate('AirdropsScreen');
               }}
             />
 
@@ -119,8 +158,13 @@ export function DrawerContent(props) {
                 <Icon name="lock" color={color} size={size} />
               )}
               label="Lockbox"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('SupportScreen');
+                props.navigation.navigate('LockboxScreen');
               }}
             />
           </Drawer.Section>
@@ -128,11 +172,16 @@ export function DrawerContent(props) {
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               icon={({color, size}) => (
-                <Icon name="web" color={color} size={size} />
+                <Icon name="earth" color={color} size={size} />
               )}
               label="Login in to Web Wallet"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('Home');
+                props.navigation.navigate('LitWalletScreen');
               }}
             />
             <DrawerItem
@@ -140,8 +189,13 @@ export function DrawerContent(props) {
                 <Icon name="settings" color={color} size={size} />
               )}
               label="Settings"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('Profile');
+                props.navigation.navigate('SettingsScreen');
               }}
             />
             <DrawerItem
@@ -149,8 +203,29 @@ export function DrawerContent(props) {
                 <Icon name="bookmark-outline" color={color} size={size} />
               )}
               label="Support"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('BookmarkScreen');
+                Alert.alert(
+                  'Blockchain',
+                  'This will leave the app and take you to browser. Continue?',
+                  [
+                    {
+                      text: 'Cancel',
+                      onPress: () => console.log('Cancel Pressed'),
+                      style: 'cancel',
+                    },
+                    {
+                      text: 'OK',
+                      onPress: () =>
+                        Linking.openURL('https://www.blockchain.com/'),
+                    },
+                  ],
+                  {cancelable: false},
+                );
               }}
             />
             <DrawerItem
@@ -158,8 +233,29 @@ export function DrawerContent(props) {
                 <Icon name="exit-to-app" color={color} size={size} />
               )}
               label="Logout"
+              labelStyle={{
+                fontFamily: 'BlissPro',
+                fontSize: 17,
+                fontWeight: '600',
+              }}
               onPress={() => {
-                props.navigation.navigate('SettingsScreen');
+                Alert.alert(
+                  'Blockchain',
+                  'This will leave the app and take you to browser. Continue?',
+                  [
+                    {
+                      text: 'Cancel',
+                      onPress: () => console.log('Cancel Pressed'),
+                      style: 'cancel',
+                    },
+                    {
+                      text: 'OK',
+                      onPress: () =>
+                        Linking.openURL('https://www.blockchain.com/'),
+                    },
+                  ],
+                  {cancelable: false},
+                );
               }}
             />
           </Drawer.Section>

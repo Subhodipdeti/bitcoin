@@ -7,7 +7,7 @@ import {
   ScrollView,
   StatusBar,
   Dimensions,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import {Title} from 'react-native-paper';
 import {useTheme} from '@react-navigation/native';
@@ -378,7 +378,7 @@ const HomeScreen = ({navigation}) => {
         </View>
       </ScrollView>
 
-      <TouchableWithoutFeedback onPress={() => refRBSheet.current.open()}>
+      <TouchableOpacity onPress={() => refRBSheet.current.open()}>
         <View
           style={{
             borderColor: '#DAE0E2',
@@ -479,9 +479,9 @@ const HomeScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
 
-      <TouchableWithoutFeedback onPress={() => refRBSheet.current.open()}>
+      <TouchableOpacity onPress={() => refRBSheet.current.open()}>
         <View
           style={{
             borderColor: '#DAE0E2',
@@ -582,7 +582,7 @@ const HomeScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
 
       <RBSheet closeOnDragDown={true} ref={refRBSheet} height={height / 1.5}>
         <View style={{alignItems: 'center'}}>

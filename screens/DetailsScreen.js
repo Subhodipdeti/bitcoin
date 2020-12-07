@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Title} from 'react-native-paper';
 import {
@@ -19,29 +19,21 @@ import {
 
 const DetailsScreen = ({navigation}) => {
   return (
-    <View>
+    <ScrollView>
       <View
         style={{padding: 10, borderBottomColor: '#eee', borderBottomWidth: 2}}>
-        <View
-          style={{
-            width: 50,
-            backgroundColor: '#3C40C6',
-            padding: 10,
-            borderRadius: 100,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+        <View>
           {/* <Icon name="arrow-left" color="#000" size={20} /> */}
-          <Icon name="arrow-right" color="#fff" size={20} />
+          <Icon name="cart" size={30} color="#1749FF" />
         </View>
         <Title
           style={{fontFamily: 'BlissPro-Bold', fontSize: 22, opacity: 0.8}}>
-          Verify Your id. Swap Today.
+          Verify Your id, Swap Today
         </Title>
         <View style={{marginTop: 10}}>
           <Text style={{fontFamily: 'BlissPro', fontSize: 18, opacity: 0.5}}>
-            Verify your identity to Swap crypto at anytime. Apply and Swap in
-            minutes
+            Verify your identity to Swap crypto at Anytime Apply and Swap in
+            minutes.
           </Text>
         </View>
       </View>
@@ -50,9 +42,26 @@ const DetailsScreen = ({navigation}) => {
         <List>
           <ListItem avatar>
             <Left>
-              <Badge primary>
-                <Text>1</Text>
-              </Badge>
+              <View
+                style={{
+                  height: 30,
+                  width: 30,
+                  backgroundColor: 'rgba(23, 73, 255, 0.2)',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  //padding: 10,
+                  borderRadius: 100,
+                }}>
+                <Text
+                  style={{
+                    fontFamily: 'BlissPro-Bold',
+                    fontSize: 22,
+                    opacity: 0.8,
+                    color: '#1749FF',
+                  }}>
+                  1
+                </Text>
+              </View>
             </Left>
             <Body>
               <Text
@@ -61,7 +70,7 @@ const DetailsScreen = ({navigation}) => {
                   fontSize: 18,
                   opacity: 0.6,
                 }}>
-                Kumar Pratik
+                Select Your Country
               </Text>
               <Text note style={{fontFamily: 'BlissPro', opacity: 0.8}}>
                 Doing what you like will always keep you happy . .
@@ -74,9 +83,26 @@ const DetailsScreen = ({navigation}) => {
 
           <ListItem avatar>
             <Left>
-              <Badge primary>
-                <Text>1</Text>
-              </Badge>
+              <View
+                style={{
+                  height: 30,
+                  width: 30,
+                  backgroundColor: 'rgba(23, 73, 255, 0.2)',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  //padding: 10,
+                  borderRadius: 100,
+                }}>
+                <Text
+                  style={{
+                    fontFamily: 'BlissPro-Bold',
+                    fontSize: 22,
+                    opacity: 0.8,
+                    color: '#1749FF',
+                  }}>
+                  2
+                </Text>
+              </View>
             </Left>
             <Body>
               <Text
@@ -85,10 +111,10 @@ const DetailsScreen = ({navigation}) => {
                   fontSize: 18,
                   opacity: 0.6,
                 }}>
-                Kumar Pratik
+                Verify Your identity
               </Text>
               <Text note style={{fontFamily: 'BlissPro', opacity: 0.8}}>
-                Doing what you like will always keep you happy . .
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </Text>
             </Body>
             <Right>
@@ -97,9 +123,26 @@ const DetailsScreen = ({navigation}) => {
           </ListItem>
           <ListItem avatar>
             <Left>
-              <Badge primary>
-                <Text>1</Text>
-              </Badge>
+              <View
+                style={{
+                  height: 30,
+                  width: 30,
+                  backgroundColor: 'rgba(23, 73, 255, 0.2)',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  //padding: 10,
+                  borderRadius: 100,
+                }}>
+                <Text
+                  style={{
+                    fontFamily: 'BlissPro-Bold',
+                    fontSize: 22,
+                    opacity: 0.8,
+                    color: '#1749FF',
+                  }}>
+                  3
+                </Text>
+              </View>
             </Left>
             <Body>
               <Text
@@ -108,10 +151,11 @@ const DetailsScreen = ({navigation}) => {
                   fontSize: 18,
                   opacity: 0.6,
                 }}>
-                Kumar Pratik
+                Start Swapping
               </Text>
               <Text note style={{fontFamily: 'BlissPro', opacity: 0.8}}>
-                Doing what you like will always keep you happy . .
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </Text>
             </Body>
             <Right>
@@ -121,7 +165,15 @@ const DetailsScreen = ({navigation}) => {
         </List>
       </View>
       <View style={{margin: 10}}>
-        <Button full primary style={{borderRadius: 10}}>
+        <TouchableOpacity
+          style={{
+            width: '100%',
+            backgroundColor: '#1749FF',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: 5,
+            padding: 10,
+          }}>
           <Text
             style={{
               fontFamily: 'BlissPro-Bold',
@@ -130,9 +182,9 @@ const DetailsScreen = ({navigation}) => {
             }}>
             Apply Now
           </Text>
-        </Button>
+        </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
