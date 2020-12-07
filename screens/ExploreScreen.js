@@ -101,14 +101,14 @@ const BuyScreen = () => {
         <Title
           style={{
             fontFamily: 'BlissPro-Bold',
-            opacity: 0.8,
+            opacity: 1,
           }}>
           Buy With Cash or Card
         </Title>
         <Text
           style={{
             fontFamily: 'BlissPro',
-            opacity: 0.5,
+            opacity: 0.8,
           }}>
           Select the crypto you want to buy
         </Text>
@@ -140,7 +140,7 @@ const BuyScreen = () => {
               style={{
                 fontFamily: 'BlissPro-Bold',
 
-                opacity: 0.6,
+                opacity: 1,
               }}>
               Bitcoin
             </Text>
@@ -181,7 +181,7 @@ const BuyScreen = () => {
               style={{
                 fontFamily: 'BlissPro-Bold',
 
-                opacity: 0.6,
+                opacity: 1,
               }}>
               Bitcoin
             </Text>
@@ -211,12 +211,11 @@ const SellScreen = () => {
           {/* <Icon name="arrow-left" color="#000" size={20} /> */}
           <Icon name="cart" size={30} color="#1749FF" />
         </View>
-        <Title
-          style={{fontFamily: 'BlissPro-Bold', fontSize: 22, opacity: 0.8}}>
+        <Title style={{fontFamily: 'BlissPro-Bold', fontSize: 22, opacity: 1}}>
           Sell Crypto
         </Title>
         <View style={{marginTop: 10}}>
-          <Text style={{fontFamily: 'BlissPro', fontSize: 18, opacity: 0.5}}>
+          <Text style={{fontFamily: 'BlissPro', fontSize: 18, opacity: 0.8}}>
             Verify your identity to sell crypto for cash.
           </Text>
         </View>
@@ -252,7 +251,7 @@ const SellScreen = () => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.6,
+                  opacity: 1,
                 }}>
                 Verify Your identity
               </Text>
@@ -293,7 +292,7 @@ const SellScreen = () => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.6,
+                  opacity: 1,
                 }}>
                 Buy Crypto
               </Text>
@@ -333,7 +332,7 @@ const SellScreen = () => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.6,
+                  opacity: 1,
                 }}>
                 Sell at Anytime
               </Text>
@@ -371,7 +370,7 @@ const SellScreen = () => {
             style={{
               fontFamily: 'BlissPro-Bold',
               color: '#fff',
-              opacity: 0.8,
+              opacity: 1,
             }}>
             Apply Now
           </Text>

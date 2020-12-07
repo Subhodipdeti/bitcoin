@@ -14,7 +14,7 @@ import {Title} from 'react-native-paper';
 import Pin from './Pin';
 import {AuthContext} from '../../Components/context';
 
-const CreatePinScreen = ({navigation, token}) => {
+const CreatePinScreen = ({navigation, token, isRenterPin}) => {
   const {colors} = useTheme();
   const [state, setstate] = useState('');
 
@@ -46,7 +46,7 @@ const CreatePinScreen = ({navigation, token}) => {
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
         <Title
           style={{color: '#05375a', fontSize: 18, fontFamily: 'BlissPro-Bold'}}>
-          Create PIN
+          {isRenterPin ? 'Re Enter PIN' : 'Enter PIN'}
         </Title>
         <Pin
           placeholder={

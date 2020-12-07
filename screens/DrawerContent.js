@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Alert, Linking} from 'react-native';
+import {View, StyleSheet, Alert, Image, Linking} from 'react-native';
 import {
   useTheme,
   Avatar,
@@ -66,15 +66,20 @@ export function DrawerContent(props) {
               borderBottomWidth: 2,
               width: '100%',
             }}>
-            <Icon
+            <Image
+              source={require('../assets/images/logo-slidebar.png')}
+              height={null}
+              width={null}
+              resizeMode="center"
+            />
+            {/* <Icon
               name="bitcoin"
               size={30}
               color="#1749FF"
               style={{alignSelf: 'center', margin: 5}}
-            />
-            <View
-              style={{alignSelf: 'center', margin: 10, flexDirection: 'row'}}>
-              <Title style={{fontFamily: 'BlissPro-Bold'}}>Blockchain</Title>
+            /> */}
+            <View style={{alignSelf: 'center', flexDirection: 'row'}}>
+              <Title style={{fontFamily: 'BlissPro-Bold'}}>Blockcloud</Title>
               <Title style={{fontFamily: 'BlissPro-Bold', opacity: 0.6}}>
                 .com
               </Title>

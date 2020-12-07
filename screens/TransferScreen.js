@@ -106,7 +106,7 @@ const BuyScreen = () => {
         <Text
           style={{
             fontFamily: 'BlissPro',
-            opacity: 0.6,
+            opacity: 1,
             textAlign: 'center',
           }}>
           Looks ike your wallets are empty, we can help you buy crypto
@@ -160,7 +160,7 @@ const BuyScreen = () => {
             style={{
               fontFamily: 'BlissPro-Bold',
               color: '#fff',
-              opacity: 0.8,
+              opacity: 1,
             }}>
             Buy Crypto
           </Text>
@@ -202,12 +202,11 @@ const SellScreen = () => {
             style={{transform: [{rotate: '-50deg'}]}}
           />
         </View>
-        <Title
-          style={{fontFamily: 'BlissPro-Bold', fontSize: 22, opacity: 0.8}}>
+        <Title style={{fontFamily: 'BlissPro-Bold', fontSize: 22, opacity: 1}}>
           Receive Crypto
         </Title>
         <View style={{marginTop: 10}}>
-          <Text style={{fontFamily: 'BlissPro', fontSize: 18, opacity: 0.5}}>
+          <Text style={{fontFamily: 'BlissPro', fontSize: 18, opacity: 1}}>
             Select a wallet to receive crypto to.
           </Text>
         </View>
@@ -243,7 +242,7 @@ const SellScreen = () => {
             </View>
           </Left>
           <Body>
-            <Text style={{fontFamily: 'BlissPro-Bold', opacity: 0.6}}>
+            <Text style={{fontFamily: 'BlissPro-Bold', opacity: 1}}>
               My Bitcoin Wallet
             </Text>
             <Text note>Bitcoin</Text>
@@ -284,7 +283,7 @@ const SellScreen = () => {
             </View>
           </Left>
           <Body>
-            <Text style={{fontFamily: 'BlissPro-Bold', opacity: 0.6}}>
+            <Text style={{fontFamily: 'BlissPro-Bold', opacity: 1}}>
               My Bitcoin Cash Wallet
             </Text>
             <Text note>Bitcoin</Text>

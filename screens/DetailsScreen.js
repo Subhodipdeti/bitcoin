@@ -26,12 +26,11 @@ const DetailsScreen = ({navigation}) => {
           {/* <Icon name="arrow-left" color="#000" size={20} /> */}
           <Icon name="cart" size={30} color="#1749FF" />
         </View>
-        <Title
-          style={{fontFamily: 'BlissPro-Bold', fontSize: 22, opacity: 0.8}}>
+        <Text style={{fontFamily: 'BlissPro-Bold', fontSize: 22, opacity: 1}}>
           Verify Your id, Swap Today
-        </Title>
+        </Text>
         <View style={{marginTop: 10}}>
-          <Text style={{fontFamily: 'BlissPro', fontSize: 18, opacity: 0.5}}>
+          <Text style={{fontFamily: 'BlissPro', fontSize: 18, opacity: 0.8}}>
             Verify your identity to Swap crypto at Anytime Apply and Swap in
             minutes.
           </Text>
@@ -68,11 +67,11 @@ const DetailsScreen = ({navigation}) => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.6,
+                  opacity: 1,
                 }}>
                 Select Your Country
               </Text>
-              <Text note style={{fontFamily: 'BlissPro', opacity: 0.8}}>
+              <Text note style={{fontFamily: 'BlissPro', opacity: 0.9}}>
                 Doing what you like will always keep you happy . .
               </Text>
             </Body>
@@ -97,7 +96,7 @@ const DetailsScreen = ({navigation}) => {
                   style={{
                     fontFamily: 'BlissPro-Bold',
                     fontSize: 22,
-                    opacity: 0.8,
+                    opacity: 0.9,
                     color: '#1749FF',
                   }}>
                   2
@@ -109,11 +108,11 @@ const DetailsScreen = ({navigation}) => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.6,
+                  opacity: 1,
                 }}>
                 Verify Your identity
               </Text>
-              <Text note style={{fontFamily: 'BlissPro', opacity: 0.8}}>
+              <Text note style={{fontFamily: 'BlissPro', opacity: 1}}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </Text>
             </Body>
@@ -149,7 +148,7 @@ const DetailsScreen = ({navigation}) => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.6,
+                  opacity: 1,
                 }}>
                 Start Swapping
               </Text>
@@ -187,7 +186,7 @@ const DetailsScreen = ({navigation}) => {
             style={{
               fontFamily: 'BlissPro-Bold',
               color: '#fff',
-              opacity: 0.8,
+              opacity: 1,
             }}>
             Apply Now
           </Text>

@@ -74,13 +74,15 @@ const App = () => {
   }, []);
 
   const _handleAppStateChange = nextAppState => {
-    // if (
-    //   appState.current.match(/inactive|background/) &&
-    //   nextAppState === 'active'
-    // ) {
-    //   // Alert.alert('Ok');
-    //   // console.warn(appState.current);
-    // }
+    if (
+      appState.current.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
+      // Alert.alert('Ok');
+      // console.warn(appState.current);
+
+      dispatch({type: 'APP_STATE', value: true, isRenterPin: false});
+    }
     if (appState.current === 'active') {
       dispatch({type: 'APP_STATE', value: true});
     }
@@ -98,6 +100,7 @@ const App = () => {
     userName: null,
     userToken: null,
     value: false,
+    isRenterPin: false,
   };
 
   const CustomDefaultTheme = {
@@ -138,6 +141,7 @@ const App = () => {
           userName: action.id,
           userToken: action.token,
           isLoading: false,
+          isRenterPin: action.isRenterPin,
         };
       case 'LOGOUT':
         return {
@@ -157,6 +161,7 @@ const App = () => {
         return {
           ...prevState,
           value: action.value,
+          isRenterPin: action.isRenterPin,
         };
     }
   };
@@ -175,7 +180,12 @@ const App = () => {
           console.log(e);
         }
         // console.log('user token: ', userToken);
-        dispatch({type: 'LOGIN', id: 'abc', token: userToken});
+        dispatch({
+          type: 'LOGIN',
+          id: 'abc',
+          token: userToken,
+          isRenterPin: true,
+        });
       },
       signOut: async () => {
         // setUserToken(null);
@@ -194,7 +204,12 @@ const App = () => {
           console.log(e);
         }
         // console.log('user token: ', userToken);
-        dispatch({type: 'REGISTER', id: 'abc', token: userToken});
+        dispatch({
+          type: 'REGISTER',
+          id: 'abc',
+          token: userToken,
+          isRenterPin: true,
+        });
       },
       toggleTheme: () => {
         setIsDarkTheme(isDarkTheme => !isDarkTheme);
@@ -239,10 +254,13 @@ const App = () => {
     <PaperProvider theme={theme}>
       <AuthContext.Provider value={authContext}>
         <NavigationContainer theme={theme}>
-          <StatusBar backgroundColor="#02295F" />
+          <StatusBar backgroundColor="#192A56" />
 
           {loginState.userToken && loginState.value ? (
-            <CreatePinScreen token={loginState.userToken} />
+            <CreatePinScreen
+              token={loginState.userToken}
+              isRenterPin={loginState.isRenterPin}
+            />
           ) : loginState.userToken !== null ? (
             <Drawer.Navigator
               drawerContent={props => <DrawerContent {...props} />}>

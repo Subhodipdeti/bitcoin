@@ -67,7 +67,7 @@ const LineChartpreview = () => {
     },
   ];
 
-  const colors = ['#8800cc', '#aa00ff', '#cc66ff', '#eeccff'];
+  const colors = ['#1749FF', '#4834DF', '#30336B', '#3C40C6'];
   const keys = ['apples', 'bananas', 'cherries', 'dates'];
   const svgs = [
     {onPress: () => console.log('apples')},
@@ -94,7 +94,7 @@ const CircleChart = () => {
     <ProgressCircle
       style={{height: 100}}
       progress={0.4}
-      progressColor={'rgb(134, 65, 244)'}
+      progressColor={'rgba(23, 73, 255, 1)'}
     />
   );
 };
@@ -174,8 +174,7 @@ const HomeScreen = ({navigation}) => {
           borderBottomWidth: 2,
         }}>
         <View>
-          <Text
-            style={{fontFamily: 'BlissPro-Bold', fontSize: 18, opacity: 0.5}}>
+          <Text style={{fontFamily: 'BlissPro-Bold', fontSize: 18, opacity: 1}}>
             Total Balance
           </Text>
           <Title style={{fontFamily: 'BlissPro-Bold', opacity: 0.8}}>
@@ -228,7 +227,7 @@ const HomeScreen = ({navigation}) => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.8,
+                  opacity: 1,
                 }}>
                 US Dollars
               </Title>
@@ -309,7 +308,7 @@ const HomeScreen = ({navigation}) => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.8,
+                  opacity: 1,
                 }}>
                 US Dollars
               </Title>
@@ -390,7 +389,7 @@ const HomeScreen = ({navigation}) => {
                 style={{
                   fontFamily: 'BlissPro-Bold',
                   fontSize: 18,
-                  opacity: 0.8,
+                  opacity: 1,
                 }}>
                 US Dollars
               </Title>
@@ -471,7 +470,7 @@ const HomeScreen = ({navigation}) => {
             <Title
               style={{
                 fontFamily: 'BlissPro-Bold',
-                opacity: 0.8,
+                opacity: 1,
               }}>
               Bitcoin
             </Title>
@@ -591,7 +590,7 @@ const HomeScreen = ({navigation}) => {
             <Title
               style={{
                 fontFamily: 'BlissPro-Bold',
-                opacity: 0.8,
+                opacity: 1,
               }}>
               Bitcoin Cash
             </Title>

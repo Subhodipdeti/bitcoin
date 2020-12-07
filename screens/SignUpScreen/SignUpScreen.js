@@ -248,7 +248,7 @@ const SignInScreen = ({navigation}) => {
                     color: '#fff',
                     // opacity: 0.8,
                   }}>
-                  Login
+                  SIGN UP
                 </Text>
               </TouchableOpacity>
             </View>
@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   text_footer: {
-    color: '#05375a',
+    //color: '#05375a',
     fontSize: 18,
     fontFamily: 'BlissPro-Bold',
   },

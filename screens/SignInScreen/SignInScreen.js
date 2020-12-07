@@ -90,6 +90,15 @@ const SignInScreen = ({navigation}) => {
   };
 
   const loginHandle = (userName, password) => {
+    if (data.username.length == 0 || data.password.length == 0) {
+      Alert.alert(
+        'Wrong Input!',
+        'Username or password field cannot be empty.',
+        [{text: 'Okay'}],
+      );
+      return;
+    }
+    navigation.navigate('CreatePinScreen');
     // const foundUser = Users.filter(item => {
     //   return userName == item.username && password == item.password;
     // });
@@ -196,25 +205,29 @@ const SignInScreen = ({navigation}) => {
             Forgot password?
           </Text>
         </TouchableOpacity> */}
-          <View style={styles.button}>
+
+          <View style={{marginTop: 50}}>
             <TouchableOpacity
-              style={styles.signIn}
-              onPress={() => {
-                loginHandle(data.username, data.password);
+              onPress={() => loginHandle(data.username, data.password)}
+              style={{
+                width: '100%',
+                //borderColor: '#1749FF',
+                // borderWidth: 2,
+                backgroundColor: '#02295F',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 5,
+                padding: 14,
+                elevation: 5,
               }}>
-              <LinearGradient
-                colors={['#00AAE1', '#02295F']}
-                style={styles.signIn}>
-                <Text
-                  style={[
-                    styles.textSign,
-                    {
-                      color: '#fff',
-                    },
-                  ]}>
-                  Sign In
-                </Text>
-              </LinearGradient>
+              <Text
+                style={{
+                  fontFamily: 'BlissPro-Bold',
+                  color: '#fff',
+                  // opacity: 0.8,
+                }}>
+                SIGN IN
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -250,7 +263,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   text_footer: {
-    color: '#05375a',
+    // color: '#05375a',
     fontSize: 18,
     fontFamily: 'BlissPro-Bold',
   },

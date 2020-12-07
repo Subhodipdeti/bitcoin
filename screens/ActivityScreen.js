@@ -70,12 +70,13 @@ export default () => {
           alignItems: 'center',
           marginTop: 100,
         }}>
-        <Title
+        <Text
           style={{
             fontFamily: 'BlissPro-Bold',
+            fontSize: 20,
           }}>
           You Have No Activity
-        </Title>
+        </Text>
         <Text
           style={{
             fontFamily: 'BlissPro',
