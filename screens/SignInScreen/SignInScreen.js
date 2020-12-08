@@ -200,11 +200,11 @@ const SignInScreen = ({navigation}) => {
             </Animatable.View>
           )}
 
-          {/* <TouchableOpacity>
-          <Text style={{color: '#009387', marginTop: 15}}>
-            Forgot password?
-          </Text>
-        </TouchableOpacity> */}
+          <TouchableOpacity>
+            <Text style={{color: '#02295F', marginTop: 15}}>
+              Forgot password?
+            </Text>
+          </TouchableOpacity>
 
           <View style={{marginTop: 50}}>
             <TouchableOpacity
