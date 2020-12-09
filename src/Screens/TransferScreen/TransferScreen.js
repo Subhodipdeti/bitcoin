@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  Dimensions,
-} from 'react-native';
+import {View, ScrollView, TouchableOpacity, Dimensions} from 'react-native';
 import {Content, List, ListItem, Left, Body, Right, Text} from 'native-base';
-
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {Icon, ICON_TYPE} from '../../Assets/icons';
 import {Title} from 'react-native-paper';
+import Header from '../../Components/Header';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -19,51 +13,7 @@ const {height, width} = Dimensions.get('screen');
 function MyTabs({navigation}) {
   return (
     <>
-      <View
-        style={{
-          backgroundColor: '#192A56',
-          width: '100%',
-          flexDirection: 'row',
-          padding: 10,
-          alignItems: 'center',
-        }}>
-        <View
-          style={{
-            flex: 5,
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            <Icon
-              type={ICON_TYPE.MATERIAL_COMMUNITY}
-              name="menu"
-              size={30}
-              color="#fff"
-            />
-          </TouchableOpacity>
-          <Title
-            style={{
-              color: '#fff',
-              fontFamily: 'BlissPro-Bold',
-              marginLeft: 20,
-            }}>
-            Transfer
-          </Title>
-        </View>
-
-        <TouchableWithoutFeedback
-          onPress={() =>
-            navigation.navigate('Camera', {screenName: 'Transfer'})
-          }>
-          <Icon
-            type={ICON_TYPE.MATERIAL_COMMUNITY}
-            name="qrcode-scan"
-            size={25}
-            color="#fff"
-            style={{marginRight: 10}}
-          />
-        </TouchableWithoutFeedback>
-      </View>
+      <Header navigation={navigation} title="Transfer" screenName="Transfer" />
 
       <Tab.Navigator
         tabBarOptions={{

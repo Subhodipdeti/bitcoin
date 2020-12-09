@@ -1,19 +1,12 @@
 import React from 'react';
-import {Text, TouchableWithoutFeedback} from 'react-native';
+import {Text} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
-
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import HomeScreen from '../../Screens/HomeScreen/HomeScreen';
-import DetailsScreen from '../../Screens/SwapScreen/SwapScreen';
-import ExploreScreen from '../../Screens/BuySellScreen/BuySellScreen';
-// import ProfileScreen from './ProfileScreen';
+import SwapScreen from '../../Screens/SwapScreen/SwapScreen';
+import BuySellScreen from '../../Screens/BuySellScreen/BuySellScreen';
 import ActivityScreen from '../../Screens/ActivityScreen/ActivityScreen';
 import TransferScreen from '../../Screens/TransferScreen/TransferScreen';
-
-const HomeStack = createStackNavigator();
-const DetailsStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -34,7 +27,7 @@ const BottomStack = props => (
     }}>
     <Tab.Screen
       name="Activity"
-      component={ActivityStackScreen}
+      component={ActivityScreen}
       options={{
         tabBarLabel: (
           <Text style={{fontFamily: 'BlissPro-Bold'}}>Activity</Text>
@@ -45,7 +38,7 @@ const BottomStack = props => (
     />
     <Tab.Screen
       name="Swap"
-      component={DetailsStackScreen}
+      component={SwapScreen}
       options={{
         tabBarLabel: <Text style={{fontFamily: 'BlissPro-Bold'}}>Swap</Text>,
         //tabBarColor: '#1f65ff',
@@ -56,7 +49,7 @@ const BottomStack = props => (
     />
     <Tab.Screen
       name="Home"
-      component={HomeStackScreen}
+      component={HomeScreen}
       options={{
         tabBarLabel: <Text style={{fontFamily: 'BlissPro-Bold'}}>Home</Text>,
         //tabBarColor: '#694fad',
@@ -65,7 +58,7 @@ const BottomStack = props => (
     />
     <Tab.Screen
       name="Buy & Sell"
-      component={ExploreScreen}
+      component={BuySellScreen}
       options={{
         tabBarLabel: (
           <Text style={{fontFamily: 'BlissPro-Bold'}}>Buy & Sell</Text>
@@ -89,195 +82,3 @@ const BottomStack = props => (
 );
 
 export default BottomStack;
-const ActivityStackScreen = ({navigation}) => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#192A56',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }}>
-    <HomeStack.Screen
-      name="Activity"
-      component={ActivityScreen}
-      options={{
-        title: (
-          <Text
-            style={{
-              fontFamily: 'BlissPro',
-              fontSize: 18,
-              opacity: 0.5,
-              letterSpacing: 1,
-            }}>
-            Activity
-          </Text>
-        ),
-        headerLeft: () => (
-          <Icon.Button
-            name="menu"
-            size={25}
-            backgroundColor="#192A56"
-            onPress={() => navigation.openDrawer()}
-          />
-        ),
-        headerRight: () => (
-          <TouchableWithoutFeedback
-            onPress={() =>
-              navigation.navigate('Camera', {screenName: 'Activity'})
-            }>
-            <Icon
-              name="qrcode-scan"
-              size={25}
-              color="#fff"
-              style={{marginRight: 10}}
-            />
-          </TouchableWithoutFeedback>
-        ),
-      }}
-    />
-  </HomeStack.Navigator>
-);
-
-const HomeStackScreen = ({navigation}) => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#192A56',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }}>
-    <HomeStack.Screen
-      name="Home"
-      component={HomeScreen}
-      options={{
-        title: (
-          <Text
-            style={{
-              fontFamily: 'BlissPro',
-              fontSize: 18,
-              opacity: 0.5,
-              letterSpacing: 1,
-            }}>
-            Dashbord
-          </Text>
-        ),
-        headerLeft: () => (
-          <Icon.Button
-            name="menu"
-            size={25}
-            backgroundColor="#192A56"
-            onPress={() => navigation.openDrawer()}
-          />
-        ),
-        headerRight: () => (
-          <TouchableWithoutFeedback
-            onPress={() =>
-              navigation.navigate('Camera', {screenName: 'Dashboard'})
-            }>
-            <Icon
-              name="qrcode-scan"
-              size={25}
-              color="#fff"
-              style={{marginRight: 10}}
-            />
-          </TouchableWithoutFeedback>
-        ),
-      }}
-    />
-  </HomeStack.Navigator>
-);
-
-const BuySellStackScreen = ({navigation}) => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#192A56',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }}>
-    <HomeStack.Screen
-      name="BuySell"
-      component={ExploreScreen}
-      options={{
-        title: (
-          <Text
-            style={{
-              fontFamily: 'BlissPro',
-              fontSize: 18,
-              opacity: 0.5,
-              letterSpacing: 1,
-            }}>
-            Buy & Sell
-          </Text>
-        ),
-        headerLeft: () => (
-          <Icon.Button
-            name="menu"
-            size={25}
-            backgroundColor="#192A56"
-            onPress={() => navigation.openDrawer()}
-          />
-        ),
-      }}
-    />
-  </HomeStack.Navigator>
-);
-
-const DetailsStackScreen = ({navigation}) => (
-  <DetailsStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#192A56',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }}>
-    <DetailsStack.Screen
-      name="Details"
-      component={DetailsScreen}
-      options={{
-        title: (
-          <Text
-            style={{
-              fontFamily: 'BlissPro',
-              fontSize: 18,
-              opacity: 0.5,
-              letterSpacing: 1,
-            }}>
-            Swap
-          </Text>
-        ),
-        headerLeft: () => (
-          <Icon.Button
-            name="menu"
-            size={25}
-            backgroundColor="#192A56"
-            onPress={() => navigation.openDrawer()}
-          />
-        ),
-        headerRight: () => (
-          <TouchableWithoutFeedback
-            onPress={() => navigation.navigate('Camera', {screenName: 'Swap'})}>
-            <Icon
-              name="qrcode-scan"
-              size={25}
-              color="#fff"
-              style={{marginRight: 10}}
-            />
-          </TouchableWithoutFeedback>
-        ),
-      }}
-    />
-  </DetailsStack.Navigator>
-);

@@ -20,6 +20,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import ListView from './ListView';
 import styles from './styles';
 import {LineChartData, StackedAreaChartData} from '../../Models/index';
+import Header from '../../Components/Header';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -223,60 +224,63 @@ const HomeScreen = ({navigation}) => {
   }
 
   return (
-    <ScrollView>
-      <View style={styles.totalAreaContainer}>
-        <View>
-          <Text style={styles.totalBalanceText}>Total Balance</Text>
-          <Title style={styles.totalAreaShortText}>15.00</Title>
-          <Text style={styles.totalAreaColorText}>0.00 (--)</Text>
+    <>
+      <Header navigation={navigation} title="Dashboard" screenName="Home" />
+      <ScrollView>
+        <View style={styles.totalAreaContainer}>
+          <View>
+            <Text style={styles.totalBalanceText}>Total Balance</Text>
+            <Title style={styles.totalAreaShortText}>15.00</Title>
+            <Text style={styles.totalAreaColorText}>0.00 (--)</Text>
+          </View>
+          <View style={{width: '30%'}}>{CircleChart()}</View>
         </View>
-        <View style={{width: '30%'}}>{CircleChart()}</View>
-      </View>
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        {PriceCard()}
-      </ScrollView>
-      {ChartCard()}
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          {PriceCard()}
+        </ScrollView>
+        {ChartCard()}
 
-      <RBSheet closeOnDragDown={true} ref={refRBSheet} height={height / 1.5}>
-        <View style={{alignItems: 'center'}}>
-          <Text
-            style={{
-              fontFamily: 'BlissPro',
-              opacity: 0.5,
-            }}>
-            Current BTC Price
-          </Text>
-          <Title>$14, 043.36</Title>
-          <View style={{alignItems: 'center', flexDirection: 'row'}}>
-            <Text
-              style={{
-                color: '#D63031',
-                fontFamily: 'BlissPro',
-                opacity: 0.8,
-              }}>
-              -$462.78 (-3.2%)
-            </Text>
+        <RBSheet closeOnDragDown={true} ref={refRBSheet} height={height / 1.5}>
+          <View style={{alignItems: 'center'}}>
             <Text
               style={{
                 fontFamily: 'BlissPro',
                 opacity: 0.5,
               }}>
-              {' '}
-              Last day
+              Current BTC Price
             </Text>
+            <Title>$14, 043.36</Title>
+            <View style={{alignItems: 'center', flexDirection: 'row'}}>
+              <Text
+                style={{
+                  color: '#D63031',
+                  fontFamily: 'BlissPro',
+                  opacity: 0.8,
+                }}>
+                -$462.78 (-3.2%)
+              </Text>
+              <Text
+                style={{
+                  fontFamily: 'BlissPro',
+                  opacity: 0.5,
+                }}>
+                {' '}
+                Last day
+              </Text>
+            </View>
           </View>
-        </View>
-        <LineChart
-          withDots={false}
-          data={LineChartData}
-          width={width}
-          height={180}
-          chartConfig={chartConfig}
-        />
+          <LineChart
+            withDots={false}
+            data={LineChartData}
+            width={width}
+            height={180}
+            chartConfig={chartConfig}
+          />
 
-        <MyTabs />
-      </RBSheet>
-    </ScrollView>
+          <MyTabs />
+        </RBSheet>
+      </ScrollView>
+    </>
   );
 };
 

@@ -12,13 +12,13 @@ import * as Animatable from 'react-native-animatable';
 import {useTheme} from '@react-navigation/native';
 import {Title} from 'react-native-paper';
 import Pin from './Pin';
-import {AuthContext} from '../../Context/ctx';
+import {useAppContext} from '../../Context/ctx';
 
 const CreatePinScreen = ({navigation, token, isRenterPin}) => {
   const {colors} = useTheme();
   const [state, setstate] = useState('');
 
-  const {signIn, toggleAppState} = React.useContext(AuthContext);
+  const {signIn, toggleAppState} = useAppContext();
 
   const onChangePinHandler = pin => {
     setstate(pin);

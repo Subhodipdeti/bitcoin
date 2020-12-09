@@ -15,12 +15,12 @@ import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {AuthContext} from '../../Context/ctx';
+import {useAppContext} from '../../Context/ctx';
 
 export function DrawerScreen(props) {
   const paperTheme = useTheme();
 
-  const {signOut, toggleTheme} = React.useContext(AuthContext);
+  const {signOut} = useAppContext();
 
   return (
     <View style={{flex: 1}}>

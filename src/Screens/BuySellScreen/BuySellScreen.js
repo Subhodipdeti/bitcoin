@@ -13,58 +13,18 @@ import {Icon, ICON_TYPE} from '../../Assets/icons';
 import {Title} from 'react-native-paper';
 import Badge from '../../Components/Badge';
 import Button from '../../Components/Button';
+import Header from '../../Components/Header';
 
 const Tab = createMaterialTopTabNavigator();
 
 function MyTabs({navigation}) {
   return (
     <>
-      <View
-        style={{
-          backgroundColor: '#192A56',
-          width: '100%',
-          flexDirection: 'row',
-          padding: 10,
-          alignItems: 'center',
-        }}>
-        <View
-          style={{
-            flex: 5,
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            <Icon
-              type={ICON_TYPE.MATERIAL_COMMUNITY}
-              name="menu"
-              size={30}
-              color="#fff"
-            />
-          </TouchableOpacity>
-          <Title
-            style={{
-              color: '#fff',
-              fontFamily: 'BlissPro-Bold',
-              marginLeft: 20,
-            }}>
-            Buy & Sell
-          </Title>
-        </View>
-
-        <TouchableWithoutFeedback
-          onPress={() =>
-            navigation.navigate('Camera', {screenName: 'Buy & Sell'})
-          }>
-          <Icon
-            type={ICON_TYPE.MATERIAL_COMMUNITY}
-            name="qrcode-scan"
-            size={25}
-            color="#fff"
-            style={{marginRight: 10}}
-          />
-        </TouchableWithoutFeedback>
-      </View>
-
+      <Header
+        navigation={navigation}
+        title="Buy & Sell"
+        screenName="Buy & Sell"
+      />
       <Tab.Navigator
         tabBarOptions={{
           labelStyle: {

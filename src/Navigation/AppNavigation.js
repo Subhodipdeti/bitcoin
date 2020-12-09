@@ -20,17 +20,17 @@ import {
   DarkTheme as PaperDarkTheme,
 } from 'react-native-paper';
 
-import {AuthContext} from '../Context/ctx';
+import {useAppContext} from '../Context/ctx';
 import RootStackScreen from './MainStack/index';
 import AuthStack from './AuthStack/AuthStack';
 import CreatePinScreen from '../Screens/CreatePinScreen/CreatePinScreen';
-import {navigationRef} from './index';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import {navigationRef, isMountedRef} from './index';
 const App = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [isUserLogeed, setisUserLogeed] = React.useState(false);
   // const [userToken, setUserToken] = React.useState(null);
+
+  const {loginState, toggleAppState} = useAppContext();
 
   //FIXME:
 
@@ -52,11 +52,13 @@ const App = () => {
     ) {
       // Alert.alert('Ok');
       // console.warn(appState.current);
+      toggleAppState(true, false);
 
-      dispatch({type: 'APP_STATE', value: true, isRenterPin: false});
+      // dispatch({type: 'APP_STATE', value: true, isRenterPin: false});
     }
     if (appState.current === 'active') {
-      dispatch({type: 'APP_STATE', value: true});
+      toggleAppState(true, false);
+      // dispatch({type: 'APP_STATE', value: true});
     }
 
     appState.current = nextAppState;
@@ -66,14 +68,6 @@ const App = () => {
   //FIXME:
 
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
-
-  const initialLoginState = {
-    isLoading: true,
-    userName: null,
-    userToken: null,
-    value: false,
-    isRenterPin: false,
-  };
 
   const CustomDefaultTheme = {
     ...NavigationDefaultTheme,
@@ -97,116 +91,12 @@ const App = () => {
     },
   };
 
-  const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
-
-  const loginReducer = (prevState, action) => {
-    switch (action.type) {
-      case 'RETRIEVE_TOKEN':
-        return {
-          ...prevState,
-          userToken: action.token,
-          isLoading: false,
-        };
-      case 'LOGIN':
-        return {
-          ...prevState,
-          userName: action.id,
-          userToken: action.token,
-          isLoading: false,
-          isRenterPin: action.isRenterPin,
-        };
-      case 'LOGOUT':
-        return {
-          ...prevState,
-          userName: null,
-          userToken: null,
-          isLoading: false,
-        };
-      case 'REGISTER':
-        return {
-          ...prevState,
-          userName: action.id,
-          userToken: action.token,
-          isLoading: false,
-        };
-      case 'APP_STATE':
-        return {
-          ...prevState,
-          value: action.value,
-          isRenterPin: action.isRenterPin,
-        };
-    }
-  };
-
-  const [loginState, dispatch] = React.useReducer(
-    loginReducer,
-    initialLoginState,
-  );
-
-  const authContext = React.useMemo(
-    () => ({
-      signIn: async userToken => {
-        try {
-          await AsyncStorage.setItem('@blockchain_Key', userToken);
-        } catch (e) {
-          console.log(e);
-        }
-        // console.log('user token: ', userToken);
-        dispatch({
-          type: 'LOGIN',
-          id: 'abc',
-          token: userToken,
-          isRenterPin: true,
-        });
-      },
-      signOut: async () => {
-        // setUserToken(null);
-        // setIsLoading(false);
-        try {
-          await AsyncStorage.removeItem('@blockchain_Key');
-        } catch (e) {
-          console.log(e);
-        }
-        dispatch({type: 'LOGOUT'});
-      },
-      signUp: async userToken => {
-        try {
-          await AsyncStorage.setItem('@blockchain_Key', userToken);
-        } catch (e) {
-          console.log(e);
-        }
-        // console.log('user token: ', userToken);
-        dispatch({
-          type: 'REGISTER',
-          id: 'abc',
-          token: userToken,
-          isRenterPin: true,
-        });
-      },
-      toggleTheme: () => {
-        setIsDarkTheme(isDarkTheme => !isDarkTheme);
-      },
-      toggleAppState: value => {
-        dispatch({type: 'APP_STATE', value: value});
-      },
-    }),
-    [],
-  );
-
-  useEffect(() => {
-    setTimeout(async () => {
-      // setIsLoading(false);
-      let userToken;
-      userToken = null;
-      try {
-        userToken = await AsyncStorage.getItem('@blockchain_Key');
-      } catch (e) {
-        console.log(e);
-      }
-      // console.log('user token: ', userToken);
-      dispatch({type: 'RETRIEVE_TOKEN', token: userToken});
-    }, 1000);
+  React.useEffect(() => {
+    isMountedRef.current = true;
+    return () => (isMountedRef.current = false);
   }, []);
+
+  const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
 
   if (loginState.isLoading) {
     return (
@@ -224,22 +114,20 @@ const App = () => {
 
   return (
     <PaperProvider theme={theme}>
-      <AuthContext.Provider value={authContext}>
-        <NavigationContainer theme={theme} ref={navigationRef}>
-          <StatusBar backgroundColor="#192A56" />
+      <NavigationContainer theme={theme} ref={navigationRef}>
+        <StatusBar backgroundColor="#192A56" />
 
-          {loginState.userToken && loginState.value ? (
-            <CreatePinScreen
-              token={loginState.userToken}
-              isRenterPin={loginState.isRenterPin}
-            />
-          ) : loginState.userToken !== null ? (
-            <RootStackScreen />
-          ) : (
-            <AuthStack />
-          )}
-        </NavigationContainer>
-      </AuthContext.Provider>
+        {loginState.userToken && loginState.value ? (
+          <CreatePinScreen
+            token={loginState.userToken}
+            isRenterPin={loginState.isRenterPin}
+          />
+        ) : loginState.userToken !== null ? (
+          <RootStackScreen />
+        ) : (
+          <AuthStack />
+        )}
+      </NavigationContainer>
     </PaperProvider>
   );
 };

@@ -1,17 +1,12 @@
 import React from 'react';
-import {
-  View,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  StyleSheet,
-} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {Title} from 'react-native-paper';
 import {Icon, ICON_TYPE} from '../Assets/icons/index';
 
-export default ({navigation}) => (
+export default ({navigation, title, screenName}) => (
   <View style={styles.container}>
     <View style={styles.headerLeft}>
-      <TouchableOpacity onPress={() => navigation.openDrawer()}>
+      <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
         <Icon
           name="menu"
           type={ICON_TYPE.MATERIAL_COMMUNITY}
@@ -19,11 +14,11 @@ export default ({navigation}) => (
           color="#fff"
         />
       </TouchableOpacity>
-      <Title style={styles.headerLeftTitle}>Buy & Sell</Title>
+      <Title style={styles.headerLeftTitle}>{title}</Title>
     </View>
 
-    <TouchableWithoutFeedback
-      onPress={() => navigation.navigate('Camera', {screenName: 'Buy & Sell'})}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Camera', {screenName: screenName})}>
       <Icon
         type={ICON_TYPE.MATERIAL_COMMUNITY}
         name="qrcode-scan"
@@ -31,7 +26,7 @@ export default ({navigation}) => (
         color="#fff"
         style={{marginRight: 10}}
       />
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   </View>
 );
 
